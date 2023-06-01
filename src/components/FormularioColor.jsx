@@ -1,28 +1,36 @@
 import { Form, Button } from "react-bootstrap";
-import ListaTareas from "./ListaTareas";
+import ListaColores from "./ListaColores";
 import { useState, useEffect } from "react";
 
 const FormularioColor = () => {
   // const tareasDelLocalStorage = JSON.parse(localStorage.getItem('listaTareas')) || [];
   const [color, setColor] = useState("");
   const [nombrecolor, setNombrecolor] = useState("");
+  const [colores, setColores] = useState([]);
   
   //ciclo de vida
-  // useEffect(()=>{
-  // localStorage.setItem('listaTareas', JSON.stringify(tareas));
-  // }, [tareas])
+    useEffect(()=>{
+      // localStorage.setItem('listaTareas', JSON.stringify(tareas));
+      console.log(colores);
+    }, [colores])
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // setTareas([...tareas, tarea]);
-    // //limpiar el input
-    // setTarea('');
+    e.preventDefault();
+    console.log(typeof color);
+    let ObjetoColor = {
+      color: color,
+      nombrecolor: nombrecolor
+    }
+    setColores([...colores, ObjetoColor]);
+    //limpiar el input
+    setColor('');
+    setNombrecolor('');
   };
 
-  // const borrarTarea = (nombreTarea)=>{
-  //   let copiaTareas = tareas.filter((itemTarea)=> itemTarea !== nombreTarea);
-  //   setTareas(copiaTareas);
-  // }
+  const borrarColor = (nombreColor)=>{
+    let copiaColores = colores.filter((color)=> color.nombrecolor !== nombreColor);
+    setColores(copiaColores)
+  }
 
   return (
     <>
@@ -44,7 +52,7 @@ const FormularioColor = () => {
           </Button>
         </Form.Group>
       </Form>
-      {/* <ListaTareas tareas={tareas} borrarTarea={borrarTarea}></ListaTareas> */}
+      <ListaColores colores={colores} borrarColor={borrarColor}></ListaColores>
     </>
   );
 };
