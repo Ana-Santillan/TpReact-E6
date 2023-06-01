@@ -9,7 +9,7 @@ const ListaColores = ({ colores, borrarColor }) => {
     <>
 
 
-      <ListGroup>
+      <ListGroup className="text-center">
         {
           colores.map((color, indiceColor) => {
             return (
