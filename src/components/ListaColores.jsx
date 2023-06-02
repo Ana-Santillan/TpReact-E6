@@ -1,14 +1,11 @@
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Row } from "react-bootstrap";
 import ItemColor from "./ItemColor";
-import { useEffect } from "react";
 
 const ListaColores = ({ colores, borrarColor }) => {
 
 
   return (
     <>
-
-
       <ListGroup className="text-center">
         {
           colores.map((color, indiceColor) => {
@@ -18,7 +15,6 @@ const ListaColores = ({ colores, borrarColor }) => {
           })
         }
       </ListGroup>
-
     </>
 
   );

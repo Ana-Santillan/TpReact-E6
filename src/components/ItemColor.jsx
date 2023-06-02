@@ -6,7 +6,7 @@ const ItemColor = ({color, borrarColor}) => {
     console.log(color);
   },[])
   return <ListGroup.Item className="d-flex justify-content-between">
-    <Card style={{ width: '50%' }} className="text-center">
+    <Card style={{ width: '100%' }} className="text-center">
       <Card.Body>
         <Card.Title>{color.nombrecolor}</Card.Title>
         <div style={{backgroundColor: color.color, height: '50px', width: '50px'}} className="my-4 mx-auto"></div>
